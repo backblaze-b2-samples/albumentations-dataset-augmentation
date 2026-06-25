@@ -16,6 +16,28 @@ Augmentation runs entirely on **local OSS** (Albumentations is pure-Python, CPU-
 - The full-bucket **File browser** and drag-and-drop **Upload** (seed ingest) from the starter kit, kept intact
 - FastAPI backend with strict layered architecture and structural tests; agent-optimized docs
 
+## What it looks like
+
+**Dashboard** — augmentation metrics at a glance (seed images, recipes, total variants, dataset multiplication factor, and bytes written to B2), a variants-produced-per-run chart, and a recent-runs table.
+
+![Dashboard with augmentation metrics, a variants-per-run chart, and recent runs](docs/images/dashboard.png)
+
+**Recipes** — the primary entity: a card per versioned recipe showing its transform graph, variant count, and run count, with create, open, run, and delete from the UI.
+
+![Recipes list showing versioned augmentation recipes with their transforms](docs/images/recipes.png)
+
+**Recipe detail** — a single recipe's config (variants per image, pinned random seed, bbox format), its ordered transform graph with per-transform probabilities, and its run history, plus Edit and Run actions.
+
+![Recipe detail with transform graph, config, and run history](docs/images/recipe-detail.png)
+
+**Run detail** — the reproducibility manifest (seed prefix, random seed, library versions) and the seed-to-variant gallery, pairing each source image with the N augmented variants written to B2.
+
+![Run detail with reproducibility manifest and the seed-to-variant gallery](docs/images/run-detail.png)
+
+**Gallery** — the augmented output library, scoped to the `augmented/` prefix and grouped by run, with thumbnails linking through to each run's detail.
+
+![Gallery of augmented output grouped by run with thumbnails](docs/images/gallery.png)
+
 ## How it works
 
 ```
