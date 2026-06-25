@@ -14,7 +14,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@albumentations-dataset-augmentation-pipeline/shared':
+      '@albumentations-dataset-augmentation/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       '@hookform/resolvers':

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePreviewUrl } from "@/lib/queries";
-import type { FileMetadata } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { FileMetadata } from "@albumentations-dataset-augmentation/shared";
 
 interface FilePreviewProps {
   file: FileMetadata | null;

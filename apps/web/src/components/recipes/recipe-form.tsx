@@ -23,7 +23,7 @@ import type {
   Recipe,
   RecipeCreate,
   RecipeTransform,
-} from "@albumentations-dataset-augmentation-pipeline/shared";
+} from "@albumentations-dataset-augmentation/shared";
 
 const BBOX_FORMATS = ["none", "yolo", "pascal_voc", "coco"] as const;
 

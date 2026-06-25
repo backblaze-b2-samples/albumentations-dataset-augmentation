@@ -11,7 +11,7 @@ import type {
   RunSummary,
   TransformSpec,
   UploadStats,
-} from "@albumentations-dataset-augmentation-pipeline/shared";
+} from "@albumentations-dataset-augmentation/shared";
 
 export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 

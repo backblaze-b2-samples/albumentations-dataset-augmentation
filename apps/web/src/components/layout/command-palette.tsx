@@ -27,7 +27,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 import { getFiles } from "@/lib/api-client";
-import type { FileMetadata } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { FileMetadata } from "@albumentations-dataset-augmentation/shared";
 
 interface CommandPaletteProps {
   open: boolean;

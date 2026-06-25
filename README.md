@@ -1,7 +1,7 @@
 <!-- last_verified: 2026-06-24 -->
 # Albumentations Augmentation Pipeline
 
-A reproducible, version-controlled **image dataset augmentation pipeline** on **[Backblaze B2](https://www.backblaze.com/sign-up/ai-cloud-storage?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation-pipeline)**. Point it at a small labeled image dataset stored in B2, define a configurable **[Albumentations](https://albumentations.ai/)** transform graph (a named, versioned *recipe*), and run it to generate **N augmented variants per source image** — multiplying a few hundred seed images into thousands of training-ready examples.
+A reproducible, version-controlled **image dataset augmentation pipeline** on **[Backblaze B2](https://www.backblaze.com/sign-up/ai-cloud-storage?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation)**. Point it at a small labeled image dataset stored in B2, define a configurable **[Albumentations](https://albumentations.ai/)** transform graph (a named, versioned *recipe*), and run it to generate **N augmented variants per source image** — multiplying a few hundred seed images into thousands of training-ready examples.
 
 Both the seed dataset and the expanded output live on B2, and every run writes a **manifest** that pins the exact recipe + random seed + source list + library versions, so the augmentation can be reproduced bit-for-bit. The headline is deliberate **write amplification**: 500 seeds × 10 variants = 5,000 images written to B2 in one run.
 
@@ -74,7 +74,7 @@ docs/
 
 ## Quick Start
 
-You need: Node.js >= 20, pnpm >= 9, Python >= 3.11, and a free **[Backblaze B2 account](https://www.backblaze.com/sign-up/ai-cloud-storage?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation-pipeline)**.
+You need: Node.js >= 20, pnpm >= 9, Python >= 3.11, and a free **[Backblaze B2 account](https://www.backblaze.com/sign-up/ai-cloud-storage?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation)**.
 
 ### Setup
 
@@ -99,7 +99,7 @@ cd ../..
 cp .env.example .env
 ```
 
-Open `.env` in your editor. Then head to the [Backblaze B2 dashboard](https://secure.backblaze.com/b2_buckets.htm?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation-pipeline) and:
+Open `.env` in your editor. Then head to the [Backblaze B2 dashboard](https://secure.backblaze.com/b2_buckets.htm?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation) and:
 
 1. **Create a bucket.** Paste the values into `.env`:
    - **Bucket Unique Name** → `B2_BUCKET_NAME`
@@ -110,7 +110,7 @@ Open `.env` in your editor. Then head to the [Backblaze B2 dashboard](https://se
 
 `B2_PUBLIC_URL_BASE` is optional — leave it blank to serve everything via short-lived presigned URLs.
 
-> Walkthroughs: [creating a bucket](https://www.backblaze.com/docs/cloud-storage-create-and-manage-buckets?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation-pipeline) and [creating app keys](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation-pipeline).
+> Walkthroughs: [creating a bucket](https://www.backblaze.com/docs/cloud-storage-create-and-manage-buckets?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation) and [creating app keys](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts&utm_content=b2ai-albumentations-dataset-augmentation).
 
 **4. Run it**
 
@@ -163,7 +163,7 @@ Frontend at `localhost:3000`, API at `localhost:8000`. Upload a few seed images,
 | `pnpm lint:api` | Lint backend (ruff) |
 | `pnpm test:api` | Run backend tests (incl. the no-network augmentation test) |
 | `pnpm check:structure` | Verify layering rules |
-| `pnpm test:e2e` | Playwright e2e tests (run `pnpm --filter @albumentations-dataset-augmentation-pipeline/web exec playwright install chromium` once first) |
+| `pnpm test:e2e` | Playwright e2e tests (run `pnpm --filter @albumentations-dataset-augmentation/web exec playwright install chromium` once first) |
 
 ## Documentation Map
 

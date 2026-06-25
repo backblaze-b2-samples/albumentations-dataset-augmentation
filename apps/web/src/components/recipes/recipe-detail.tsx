@@ -33,7 +33,7 @@ import {
   useUpdateRecipe,
 } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
-import type { RecipeCreate } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { RecipeCreate } from "@albumentations-dataset-augmentation/shared";
 
 export function RecipeDetail({ recipeId }: { recipeId: string }) {
   const { data: recipe, isLoading, error, refetch } = useRecipe(recipeId);

@@ -13,7 +13,7 @@ import { ErrorState } from "@/components/ui/error-state";
 import { getObjectPreview } from "@/lib/api-client";
 import { useRunDetail, useRunRecipe } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
-import type { VariantPair } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { VariantPair } from "@albumentations-dataset-augmentation/shared";
 
 // Resolves presigned image URLs for a key, rendering an <img> once ready.
 function PreviewImage({ objectKey, alt }: { objectKey: string; alt: string }) {

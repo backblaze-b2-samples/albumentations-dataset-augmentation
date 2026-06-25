@@ -3,7 +3,7 @@
 import { FileIcon, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { humanizeBytes } from "@/lib/utils";
-import type { FileStatus } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { FileStatus } from "@albumentations-dataset-augmentation/shared";
 
 export interface UploadItem {
   id: string;

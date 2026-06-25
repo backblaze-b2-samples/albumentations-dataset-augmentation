@@ -1,5 +1,5 @@
 {
-  "name": "@albumentations-dataset-augmentation-pipeline/shared",
+  "name": "@albumentations-dataset-augmentation/shared",
   "version": "0.1.0",
   "private": true,
   "main": "./src/types.ts",

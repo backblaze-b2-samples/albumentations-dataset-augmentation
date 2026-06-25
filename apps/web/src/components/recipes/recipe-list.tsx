@@ -32,7 +32,7 @@ import {
 import { RecipeForm } from "./recipe-form";
 import { useCreateRecipe, useDeleteRecipe, useRecipes } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
-import type { RecipeCreate } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { RecipeCreate } from "@albumentations-dataset-augmentation/shared";
 
 export function RecipeList() {
   const { data: recipes = [], isLoading, error, refetch } = useRecipes();

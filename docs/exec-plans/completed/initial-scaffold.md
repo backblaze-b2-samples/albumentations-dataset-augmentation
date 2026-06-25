@@ -1,4 +1,4 @@
-# Build plan — `albumentations-dataset-augmentation-pipeline`
+# Build plan — `albumentations-dataset-augmentation`
 
 Source of truth (Phase 0 clone, the ONLY valid starter-kit source):
 `.claude/scratch/vcsk-7a197566-dbb4-4f7f-8924-4990be3d60a4/`
@@ -91,12 +91,12 @@ All via the existing S3 client in `repo/b2_client.py` with `user_agent_extra` se
 ## 6. Rename table
 | From (starter) | To (this sample) |
 |---|---|
-| `vibe-coding-starter-kit` (kebab, repo + pkg name + `@vibe-coding-starter-kit/*` scopes + clone URL + commit msg) | `albumentations-dataset-augmentation-pipeline` |
+| `vibe-coding-starter-kit` (kebab, repo + pkg name + `@vibe-coding-starter-kit/*` scopes + clone URL + commit msg) | `albumentations-dataset-augmentation` |
 | `OSS Starter Kit` / `Vibe Coding Starter Kit` (Title Case, `APP_NAME`, README H1) | `Albumentations Augmentation Pipeline` |
 | `APP_DESCRIPTION` "File management dashboard powered by Backblaze B2" | "Reproducible image dataset augmentation pipeline powered by Backblaze B2" |
 | FastAPI `title="OSS Starter Kit API"` / description | `Albumentations Augmentation Pipeline API` / augmentation-focused desc |
-| `user_agent_extra="b2ai-oss-start"` | `user_agent_extra="albumentations-dataset-augmentation-pipeline"` |
-| `utm_content=b2ai-oss-start` (all README + sidebar B2 links) | `utm_content=albumentations-dataset-augmentation-pipeline` |
+| `user_agent_extra="b2ai-oss-start"` | `user_agent_extra="albumentations-dataset-augmentation"` |
+| `utm_content=b2ai-oss-start` (all README + sidebar B2 links) | `utm_content=albumentations-dataset-augmentation` |
 | header `pageTitles` map | add `/recipes`→"Recipes", `/gallery`→"Gallery", `/runs`→"Runs" (dynamic `[id]` segments derive automatically; verify no stale-name/"Page" fallback in any breadcrumb) |
 | **Env vars → parent CLAUDE.md Standard #3 (b2-doctor):** | |
 | `B2_KEY_ID` → | `B2_APPLICATION_KEY_ID` |

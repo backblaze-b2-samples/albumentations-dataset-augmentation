@@ -1,4 +1,4 @@
-import type { FileMetadata } from "@albumentations-dataset-augmentation-pipeline/shared";
+import type { FileMetadata } from "@albumentations-dataset-augmentation/shared";
 
 export interface TreeFolder {
   type: "folder";
