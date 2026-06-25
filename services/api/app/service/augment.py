@@ -87,13 +87,19 @@ def augment_image(
     variants; determinism across whole runs is handled by the caller seeding
     numpy/random before invoking this.
     """
+    # A bbox-aware compose (built with bbox_params) requires `bboxes` and its
+    # declared label field on *every* call — even for a seed with no annotations.
+    # Pass empty lists in that case so an un-annotated seed augments image-only
+    # instead of tripping Albumentations' label_fields validation (would 500).
+    bbox_aware = "bboxes" in getattr(compose, "processors", {})
     out: list[dict] = []
     for _ in range(n_variants):
-        if bboxes is not None:
+        if bbox_aware:
+            boxes = bboxes or []
             res = compose(
                 image=image,
-                bboxes=bboxes,
-                class_labels=class_labels or [0] * len(bboxes),
+                bboxes=boxes,
+                class_labels=class_labels or [0] * len(boxes),
             )
             out.append({"image": res["image"], "bboxes": res["bboxes"]})
         else:

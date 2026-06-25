@@ -89,6 +89,23 @@ def test_bbox_compose_transforms_geometry():
         assert abs(v["bboxes"][0][0] - 0.75) < 0.01
 
 
+def test_bbox_compose_without_bboxes_does_not_raise():
+    """A bbox-aware recipe (bbox_format set) run over a seed with no YOLO
+    sidecar must augment image-only, not 500. Regression: previously raised
+    Albumentations' label_fields ValueError, surfacing as a network error."""
+    compose = build_compose(
+        [{"id": "HorizontalFlip", "params": {}, "p": 1.0}], bbox_format="yolo"
+    )
+    image = (np.random.rand(64, 64, 3) * 255).astype(np.uint8)
+
+    variants = augment_image(compose, image, n_variants=3, bboxes=None)
+
+    assert len(variants) == 3
+    for v in variants:
+        assert isinstance(v["image"], np.ndarray)
+        assert v["bboxes"] == []  # no annotations -> empty, no sidecar written
+
+
 def test_library_versions_pinned():
     versions = library_versions()
     assert "albumentations" in versions

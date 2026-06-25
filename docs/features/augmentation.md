@@ -42,7 +42,8 @@ Apply a recipe's Albumentations transform graph to each seed image N times, writ
 - No seeds under the prefix → run completes with 0 variants (factor 0)
 - Unknown transform → engine raises `RecipeBuildError` → 502 from the route
 - Bad transform params → `RecipeBuildError`
-- Missing/absent YOLO sidecar → variant written without a sidecar (graceful)
+- Missing/absent YOLO sidecar → variant written without a sidecar (graceful), even when the recipe sets `bbox_format: yolo` (bbox-aware compose augments the un-annotated seed image-only)
+- Unexpected engine error → route returns a 500 with a JSON `detail` (not a bare crash), so the client shows the error instead of an opaque network failure
 
 ## Verification
 - Test files: `services/api/tests/test_augment.py` (no-network: builds `A.Compose` from a recipe and asserts N variants from one in-memory numpy image; bbox geometry carried through)

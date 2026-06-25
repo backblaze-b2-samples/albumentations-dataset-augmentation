@@ -80,3 +80,9 @@ async def run_recipe_endpoint(recipe_id: str, body: RunRequest | None = None):
     except RuntimeError as e:
         logger.error("Run failed for recipe %s: %s", recipe_id, e)
         raise HTTPException(status_code=502, detail="Augmentation run failed") from None
+    except Exception:
+        # Surface engine errors as a real HTTP response (carries CORS headers so
+        # the browser can read it) rather than a bare 500 the client sees only
+        # as an opaque "network error".
+        logger.exception("Unexpected error running recipe %s", recipe_id)
+        raise HTTPException(status_code=500, detail="Augmentation run failed") from None
